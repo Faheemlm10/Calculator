@@ -5,8 +5,15 @@ import Display from "./components/Display";
 import Numbers from "./components/Numbers";
 import { Stack } from "@mui/material";
 import { UserContext } from "./components/useContext";
+import { InitialContext } from "./components/InitialContext";
+import { useState, useContext } from "react";
 
 function App() {
+  const [value, setValue] = useState('');
+  const [initial,setInitial] = useState(false)
+  const [equation, setEquation] = useState([]);
+ 
+
   return (
     <Stack
       alignItems="center"
@@ -16,9 +23,11 @@ function App() {
     >
       <Top />
 
-      <UserContext.Provider value="gh">
+      <UserContext.Provider value={{ value, setValue}}>
+        <InitialContext.Provider value={{initial,setInitial}}>      
         <Display />
         <Numbers />
+        </InitialContext.Provider > 
       </UserContext.Provider>
     </Stack>
   );

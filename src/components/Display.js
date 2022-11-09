@@ -2,9 +2,12 @@ import { Box } from "@mui/material";
 import React from "react";
 import { useState, useContext } from "react";
 import { UserContext } from "./useContext";
+import { InitialContext } from "./InitialContext";
 
 const Display = () => {
-  const displayNumber = useContext(UserContext)
+  const { value, setValue } = useContext(UserContext);
+  const { initial, setInitial } = useContext(InitialContext);
+
   return (
     <Box
       bgcolor="hsl(224, 36%, 15%)"
@@ -16,7 +19,8 @@ const Display = () => {
       alignItems="center"
       mt="1.5rem"
     >
-      <span>{displayNumber}</span>
+      {!initial ? <span>0</span> : <span>{value}</span>  }
+      
     </Box>
   );
 };

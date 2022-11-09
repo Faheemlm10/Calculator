@@ -67,6 +67,7 @@ body {
   align-items: center;
   justify-content: space-around;
   color: hsl(221, 14%, 31%);
+  
 }
 
 .number-first-first,
@@ -77,6 +78,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .calculator-btn {
@@ -84,13 +86,16 @@ body {
   font-size: 30px;
   width: 5rem;
   height: 3rem;
-  padding-top: 0.7rem;
+  padding-top: 0.7rem !important;
   padding-bottom: 0.7rem;
   border-radius: 0.5rem;
   padding: 0.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "League Spartan", sans-serif;
+  color: hsl(221, 14%, 31%);
+  cursor: pointer;
 }
 
 .reset,
@@ -114,3 +119,4 @@ body {
   color: hsl(0, 0%, 100%) !important;
   font-size: 25px ;
 }
+

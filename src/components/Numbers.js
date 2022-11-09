@@ -1,7 +1,23 @@
 import React from "react";
 import { Box } from "@mui/material";
+import { useContext, useState, useEffect } from "react";
+import { UserContext, Initial } from "./useContext";
+import { InitialContext } from "./InitialContext";
 
 const Numbers = () => {
+  const { value, setValue } = useContext(UserContext);
+  const { initial, setInitial } = useContext(InitialContext);
+  const [equation, setEquation] = useState([]);
+  const [click, setClick] = useState();
+
+  const numberClickFunction = (e) => {
+    setClick(e.target.value);
+    setValue(value + " " + e.target.value);
+    setEquation([...equation, e.target.value]);
+    setInitial(true);
+    console.log(e.target.value);
+    console.log(equation);
+  };
   return (
     <Box
       width="28rem"
@@ -11,33 +27,108 @@ const Numbers = () => {
     >
       <div className="number-first">
         <div className="number-first-first">
-          <div className="calculator-btn">7</div>
-          <div className="calculator-btn">8</div>
-          <div className="calculator-btn">9</div>
+          <input
+            type="button"
+            value="7"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
+          <input
+            type="button"
+            value="8"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
+          <input
+            type="button"
+            value="9"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
+
           <div className="calculator-btn del">DEL</div>
         </div>
         <div className="number-first-second">
-          <div className="calculator-btn">4</div>
-          <div className="calculator-btn">5</div>
-          <div className="calculator-btn">6</div>
-          <div className="calculator-btn">+</div>
+          <input
+            type="button"
+            value="4"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
+          <input
+            type="button"
+            value="5"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
+          <input
+            type="button"
+            value="6"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
+          <input
+            type="button"
+            value="+"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
         </div>
         <div className="number-first-third">
-          <div className="calculator-btn">1</div>
-          <div className="calculator-btn">2</div>
-          <div className="calculator-btn">3</div>
-          <div className="calculator-btn">-</div>
+          <input
+            type="button"
+            value="1"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
+          <input
+            type="button"
+            value="2"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
+          <input
+            type="button"
+            value="3"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
+          <input
+            type="button"
+            value="-"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
         </div>
         <div className="number-first-fourth">
-          <div className="calculator-btn">.</div>
-          <div className="calculator-btn">0</div>
-          <div className="calculator-btn">/</div>
-          <div className="calculator-btn">x</div>
+          <input
+            type="button"
+            value="."
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
+          <input
+            type="button"
+            value="0"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
+          <input
+            type="button"
+            value="/"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
+          <input
+            type="button"
+            value="x"
+            className="calculator-btn"
+            onClick={numberClickFunction}
+          />
         </div>
         <div className="number-first-fifth">
           <div className="calculator-btn reset">RESET</div>
           <div className="calculator-btn equal">=</div>
-          
         </div>
       </div>
     </Box>
