@@ -6,12 +6,13 @@ import Numbers from "./components/Numbers";
 import { Stack } from "@mui/material";
 import { UserContext } from "./components/useContext";
 import { InitialContext } from "./components/InitialContext";
-import { useState, useContext } from "react";
+import { useContext } from "react";
+import { useState} from "react";
 
 function App() {
   const [value, setValue] = useState('');
   const [initial,setInitial] = useState(false)
-  const [equation, setEquation] = useState([]);
+  const [equation, setEquation]   = useState([]);
  
 
   return (
